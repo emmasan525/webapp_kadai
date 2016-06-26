@@ -2,8 +2,8 @@
 
 ファイル構造  
 
-* /  
-*  app/  
+/  
+	app/  
     controllers/  
       _init_.py  
       mistake.py  
