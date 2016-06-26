@@ -1,10 +1,10 @@
 # webapp_kadai
 
-ファイル構造
+ファイル構造  
 
-/
-  app/
-    controllers/
+/  
+  app/  
+    controllers/  
       _init_.py
       mistake.py
     models/
