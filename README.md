@@ -1,7 +1,7 @@
 # webapp_kadai
 
 ファイル構造  
-
+```
 /  
 	app/  
     controllers/  
@@ -30,7 +30,8 @@
     index.html  
     new.html  
   index.py  
-    
+  ```
+  
   index.py：ディスパッチャー　python index.pyで稼働  
   bottle.py：PythonのWebアプリフレームワークbottleの本体  
   db.cnf, create_table.sql：MySQLの情報  
