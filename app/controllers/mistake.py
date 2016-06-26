@@ -5,8 +5,8 @@ sys.path.append('libs')
 
 from bottle import route, post, request, redirect, jinja2_template as template
 
-import app.models.manga
-model = app.models.manga.Manga()
+import app.models.mistake
+model = app.models.mistake.Mistake()
 
 
 #一覧ページ

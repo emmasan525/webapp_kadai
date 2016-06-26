@@ -1,21 +1,21 @@
 {% include "inc/header" %}
 
 	<div class="menu">
-		<a href="/new"><button class="pure-button pure-button-primary pure-button-small">新しいまんがを登録する</button></a>
+		<a href="/new"><button class="pure-button pure-button-primary pure-button-small">新しい失敗を追加する</button></a>
 	</div>
 
 	<div class="box">
 		<table class="pure-table pure-table-horizontal">
 		    <thead>
 		        <tr>
-		            <th>巻数</th>
-		            <th>タイトル</th>
+		            <th>回数</th>
+		            <th>失敗の名前</th>
 		            <th>&nbsp;</th>
 		        </tr>
 		    </thead>
 
 		    <tbody>
-		    	{% for i in result.mangas %}
+		    	{% for i in result.mistakes %}
 		        <tr>
 		            <td>{{i.num}}</td>
 		            <td>{{i.name}}</td>

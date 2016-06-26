@@ -3,13 +3,7 @@
 import app.models.db as db
 import app.models.pager as pager
 
-class Manga:
-
-    # ==========================================
-    # 
-    # マンガ一覧を取得するやーつ
-    # 
-    # ==========================================
+class Mistake:
 
     def load(self, page):
 
@@ -18,46 +12,37 @@ class Manga:
 
         result = {}
 
-        sql = "select count(id) as all_count from manga"
+        sql = "select count(id) as all_count from mistake"
         db.con.execute(sql)
         result = db.con.fetchone()
 
         result["pagination"] = pager.Pagination(page, define_page, result["all_count"])
 
-        sql = "select * from manga order by kana"
+        sql = "select * from mistake order by kana"
         sql += ' limit %s, %s'
         db.con.execute(sql, (start, define_page))
-        result["mangas"] = db.con.fetchall()
+        result["mistakes"] = db.con.fetchall()
 
         return result
 
 
-    # ==========================================
-    # 
-    # マンガ単品を取得するやーつ
-    # 
-    # ==========================================
     def edit(self, id):
 
-        sql = "select * from manga where id = %s"
-        db.con.execute(sql, (id))
+        sql = "select * from mistake where id = %s"
+        db.con.execute(sql, (id,))
         return db.con.fetchone()
 
 
-    # ==========================================
-    # 
     # idがあったらdelフラグありで削除、無しで更新、idがなかったら新規追加
-    # 
-    # ==========================================
     def done(self, params):
 
         if params["id"]:
 
             if params["del"]:
-                sql = "delete from manga where id = %s"
+                sql = "delete from mistake where id = %s"
                 db.con.execute(sql, (params["id"]))
             else:
-                sql = "update manga set "
+                sql = "update mistake set "
                 sql += " num=%s"
                 sql += ",name=%s"
                 sql += ",kana=%s"
@@ -72,7 +57,7 @@ class Manga:
 
         else:
 
-            sql = "insert into manga (num, name, kana, regdate) values (%s, %s, %s, CURRENT_TIMESTAMP)"
+            sql = "insert into mistake (num, name, kana, regdate) values (%s, %s, %s, CURRENT_TIMESTAMP)"
             db.con.execute(sql, (
                                 params["num"],
                                 params["name"],
